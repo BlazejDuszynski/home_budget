@@ -1,0 +1,21 @@
+.summary {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.summary__income {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.summary__expense {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.summary__total {
+  flex-basis: 100%;
+  text-align: center;
+}
