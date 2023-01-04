@@ -1,0 +1,23 @@
+.datePicker {
+  display: flex;
+  flex-basis: 15%;
+  align-items: center;
+  gap: 30px;
+  justify-content: space-around;
+  font-size: 1.4em;
+}
+
+.datePicker__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 1em;
+}
+
+.datePicker__content {
+  display: flex;
+  flex: 2;
+  gap: 10px;
+  justify-content: center;
+}
