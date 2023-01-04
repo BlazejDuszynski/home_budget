@@ -4,8 +4,8 @@ const EntriesContainer = (props) => {
 
   return (
     <div className={classes.container}>
-      <header>
-        <button className={classes.button}>Dodaj</button>
+      <header className={classes.header}>
+        <button className={classes.button}>Add</button>
         <h2>{props.name}</h2>
       </header>
     </div>

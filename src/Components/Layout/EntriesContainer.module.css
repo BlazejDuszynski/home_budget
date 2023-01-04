@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.header {
+    padding: 0 10px;
+    border-bottom: 1px solid grey;
+}
+
 .button {
   border: none;
   background-color: teal;

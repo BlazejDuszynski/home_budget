@@ -1,5 +1,6 @@
 .main {
   display: flex;
   padding: 30px 10%;
+  gap: 5%;
   justify-content: space-evenly;
 }
