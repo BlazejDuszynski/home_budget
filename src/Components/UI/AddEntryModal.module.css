@@ -24,6 +24,18 @@
 .header {
   color: teal;
   text-align: center;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 900;
+  background-color: inherit;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .form {
@@ -46,4 +58,24 @@
   width: 100%;
   background-color: transparent;
   color: grey;
+}
+
+.datePicker {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 2em;
+}
+
+.submitButton {
+  border: none;
+  background-color: teal;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 4em;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  width: 100%;
+  margin: 10px 0;
 }

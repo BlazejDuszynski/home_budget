@@ -11,11 +11,18 @@ const AddEntryModal = (props) => {
     setStartDate(date);
   };
 
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <Fragment>
       <div className={classes.backdrop} onClick={props.onCloseModal}></div>
       <div className={classes.modal}>
-        <header className={classes.header}>Add revenue</header>
+        <header className={classes.header}>
+          <p>Add revenue</p>
+          {/* <button className={classes.closeButton}>X</button> */}
+        </header>
         <form className={classes.form}>
           <input
             type="text"
@@ -33,7 +40,14 @@ const AddEntryModal = (props) => {
             <option value="Fun">Fun</option>
           </select>
           <input type="number" placeholder="Price" className={classes.input} />
-          <DatePicker selected={startDate} onChange={changeDateHandler} />
+          <DatePicker
+            className={classes.datePicker}
+            selected={startDate}
+            onChange={changeDateHandler}
+          />
+          <button type="submit" onClick={submitFormHandler} className={classes.submitButton}>
+            Add
+          </button>
         </form>
       </div>
     </Fragment>
