@@ -1,4 +1,5 @@
 import classes from "./EntriesContainer.module.css";
+import Entry from "./Entry";
 
 const EntriesContainer = (props) => {
   return (
@@ -9,6 +10,7 @@ const EntriesContainer = (props) => {
         </button>
         <h2>{props.name}</h2>
       </header>
+      <Entry />
     </div>
   );
 };

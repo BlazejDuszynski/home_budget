@@ -1,0 +1,23 @@
+.entry {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 0.5px dotted grey;
+  font-family: "Poppins", sans-serif;
+}
+
+.description {
+  flex-basis: 100%;
+  text-align: start;
+}
+
+.title {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.category {
+  font-style: italic;
+  font-size: 0.8em;
+}
