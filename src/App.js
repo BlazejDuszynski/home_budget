@@ -7,7 +7,7 @@ function App() {
   return (
     <Fragment>
       <AppHeader />
-      <Main>sasd</Main>
+      <Main />
     </Fragment>
   );
 }

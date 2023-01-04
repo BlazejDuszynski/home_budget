@@ -1,7 +1,13 @@
-import classes from "./Main.module.css"
+import EntriesContainer from "../Layout/EntriesContainer";
+import classes from "./Main.module.css";
 
-const Main = (props) => {
-  return <main className={classes.main}>{props.children}</main>;
+const Main = () => {
+  return (
+    <main className={classes.main}>
+      <EntriesContainer name="Income" />
+      <EntriesContainer name="Expenses" />
+    </main>
+  );
 };
 
 export default Main;
