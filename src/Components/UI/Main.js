@@ -5,7 +5,7 @@ import classes from "./Main.module.css";
 const Main = () => {
   return (
     <main className={classes.main}>
-      <EntriesContainer name="Income" />
+      <EntriesContainer name="Revenues" />
       <Summary />
       <EntriesContainer name="Expenses" />
     </main>
