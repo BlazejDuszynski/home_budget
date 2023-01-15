@@ -13,8 +13,6 @@ const RevenuesProvider = (props) => {
     setRevenuesItems(updatedRevenues);
   };
 
-  console.log(revenueItems);
-
   const revenuesContext = {
     revenuesItems: revenueItems,
     addItem: addRevenueHandler,
