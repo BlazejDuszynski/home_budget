@@ -6,7 +6,6 @@ import RevenuesContext from "../../Store/revenues-context";
 const EntriesContainer = (props) => {
   const ctx = useContext(RevenuesContext);
 
-  
   return (
     <div className={classes.container}>
       <header className={classes.header}>
