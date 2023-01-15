@@ -8,17 +8,19 @@ const RevenuesProvider = (props) => {
     setRevenuesItems([...revenueItems, revenue]);
   };
 
-  //   const removeRevenueHandler = (id) => {
+  const removeRevenueHandler = (id) => {
+    const updatedRevenues = revenueItems.filter((revenue) => revenue.id !== id);
+    setRevenuesItems(updatedRevenues);
+  };
 
-  //   };
+  console.log(revenueItems);
 
   const revenuesContext = {
     revenuesItems: revenueItems,
     addItem: addRevenueHandler,
-    // removeItem: removeRevenueHandler,
+    removeItem: removeRevenueHandler,
   };
 
-  console.log(revenuesContext);
   return (
     <RevenuesContext.Provider value={revenuesContext}>
       {props.children}

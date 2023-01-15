@@ -20,6 +20,7 @@ const EntriesContainer = (props) => {
             category={revenue.category}
             price={revenue.price}
             id={revenue.id}
+            key={revenue.id}
           />
         );
       })}
