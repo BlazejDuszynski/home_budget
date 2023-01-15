@@ -1,14 +1,14 @@
 import classes from "./Entry.module.css";
 import { CiCircleRemove } from "react-icons/ci";
 
-const Entry = () => {
+const Entry = (props) => {
   return (
     <li className={classes.entry}>
       <div className={classes.description}>
-        <div className={classes.title}>Title</div>
-        <div className={classes.category}>Category</div>
+        <div className={classes.title}>{props.title}</div>
+        <div className={classes.category}>{props.category}</div>
       </div>
-      <p>12,99</p>
+      <p className={classes.price}>{props.price} PLN</p>
       <p>
         <CiCircleRemove className={classes.trash} />
       </p>

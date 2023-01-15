@@ -2,15 +2,20 @@ import { useState } from "react";
 import RevenuesContext from "./revenues-context";
 
 const RevenuesProvider = (props) => {
-  const [revenuesItems, setRevenuesItems] = useState([]);
+  const [revenueItems, setRevenuesItems] = useState([]);
 
   const addRevenueHandler = (revenue) => {
-    setRevenuesItems([...revenuesItems, revenue]);
+    setRevenuesItems([...revenueItems, revenue]);
   };
 
+  //   const removeRevenueHandler = (id) => {
+
+  //   };
+
   const revenuesContext = {
-    revenuesItems: revenuesItems,
+    revenuesItems: revenueItems,
     addItem: addRevenueHandler,
+    // removeItem: removeRevenueHandler,
   };
 
   console.log(revenuesContext);

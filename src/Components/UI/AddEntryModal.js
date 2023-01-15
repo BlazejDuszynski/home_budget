@@ -1,7 +1,7 @@
 import classes from "./AddEntryModal.module.css";
 import { Fragment } from "react";
 import React, { useState, useContext } from "react";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RevenuesContext from "../../Store/revenues-context";
 
