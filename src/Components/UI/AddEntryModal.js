@@ -10,8 +10,7 @@ const AddEntryModal = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
-  const [enteredDate, setEnteredDate] = useState(startDate);
+  const [enteredDate, setEnteredDate] = useState("");
 
   const changeTitleHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -25,8 +24,7 @@ const AddEntryModal = (props) => {
     setEnteredPrice(event.target.value);
   };
 
-  const changeDateHandler = (date, event) => {
-    setStartDate(date);
+  const changeDateHandler = (event) => {
     setEnteredDate(event.target.value);
   };
 
@@ -88,9 +86,9 @@ const AddEntryModal = (props) => {
             onChange={changePriceHandler}
             // value={setPrice}
           />
-          <DatePicker
+          <input
+            type="date"
             className={classes.datePicker}
-            selected={startDate}
             onChange={changeDateHandler}
           />
           <button type="submit" className={classes.submitButton}>
