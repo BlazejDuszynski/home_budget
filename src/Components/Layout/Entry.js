@@ -6,10 +6,8 @@ import RevenuesContext from "../../Store/revenues-context";
 const Entry = (props) => {
   const ctx = useContext(RevenuesContext);
 
-  const entryId = props.id;
-
   const removeItemHandler = () => {
-    ctx.removeItem(entryId);
+    ctx.removeItem(props.id);
   };
 
   return (
@@ -19,7 +17,6 @@ const Entry = (props) => {
         <div className={classes.category}>{props.category}</div>
       </div>
       <p className={classes.price}>{props.price} PLN</p>
-      {/* <p>{props.id}</p> */}
       <CiCircleRemove className={classes.trash} onClick={removeItemHandler} />
     </li>
   );

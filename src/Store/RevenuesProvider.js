@@ -19,6 +19,8 @@ const RevenuesProvider = (props) => {
     removeItem: removeRevenueHandler,
   };
 
+  console.log(revenueItems);
+
   return (
     <RevenuesContext.Provider value={revenuesContext}>
       {props.children}

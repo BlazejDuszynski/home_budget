@@ -2,9 +2,11 @@ import classes from "./EntriesContainer.module.css";
 import { useContext } from "react";
 import Entry from "./Entry";
 import RevenuesContext from "../../Store/revenues-context";
+import DateContext from "../../Store/date-context";
 
 const EntriesContainer = (props) => {
-  const ctx = useContext(RevenuesContext);
+  const revenuesCtx = useContext(RevenuesContext);
+  const dateCtx = useContext(DateContext);
 
   return (
     <div className={classes.container}>
@@ -14,12 +16,12 @@ const EntriesContainer = (props) => {
           Add
         </button>
       </header>
-      {ctx.revenuesItems.length === 0 ? (
+      {revenuesCtx.revenuesItems.length === 0 ? (
         <p className={classes.info}>
           There are no {props.name.toLowerCase()} in this month.
         </p>
       ) : (
-        ctx.revenuesItems.map((revenue) => {
+        revenuesCtx.revenuesItems.map((revenue) => {
           return (
             <Entry
               title={revenue.title}
