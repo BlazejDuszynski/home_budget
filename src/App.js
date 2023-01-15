@@ -2,12 +2,15 @@ import { Fragment } from "react";
 import "./App.css";
 import AppHeader from "./Components/Layout/AppHeader";
 import Main from "./Components/UI/Main";
+import RevenuesProvider from "./Store/RevenuesProvider";
 
 function App() {
   return (
     <Fragment>
       <AppHeader />
-      <Main />
+      <RevenuesProvider>
+        <Main />
+      </RevenuesProvider>
     </Fragment>
   );
 }

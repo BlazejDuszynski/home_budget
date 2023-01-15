@@ -1,42 +1,52 @@
 import classes from "./AddEntryModal.module.css";
 import { Fragment } from "react";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import RevenuesContext from "../../Store/revenues-context";
 
 const AddEntryModal = (props) => {
+  const ctx = useContext(RevenuesContext);
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredCategory, setEnteredCategory] = useState("");
+  const [enteredPrice, setEnteredPrice] = useState("");
   const [startDate, setStartDate] = useState(new Date());
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-
-  const changeDateHandler = (date) => {
-    setStartDate(date);
-  };
+  const [enteredDate, setEnteredDate] = useState(startDate);
 
   const changeTitleHandler = (event) => {
-    setTitle(event.target.value);
+    setEnteredTitle(event.target.value);
   };
 
   const changeCategoryHandler = (event) => {
-    setCategory(event.target.value);
+    setEnteredCategory(event.target.value);
   };
 
   const changePriceHandler = (event) => {
-    setPrice(event.target.value);
+    setEnteredPrice(event.target.value);
+  };
+
+  const changeDateHandler = (date, event) => {
+    setStartDate(date);
+    setEnteredDate(event.target.value);
+  };
+
+  const addedItem = {
+    title: enteredTitle,
+    category: enteredCategory,
+    price: enteredPrice,
+    date: enteredDate,
+    id: Math.random().toString(),
   };
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    if (title.trim().length === 0) {
-      console.log("Enter valid title");
-    }
-    if (price <= 0) {
-      console.log("Enter valid price");
-    }
-    setCategory("");
-    setTitle("");
-    setPrice("");
+    // if (title.trim().length === 0) {
+    //   console.log("Enter valid title");
+    // }
+    // if (price <= 0) {
+    //   console.log("Enter valid price");
+    // }
+    ctx.addItem(addedItem);
   };
 
   return (
