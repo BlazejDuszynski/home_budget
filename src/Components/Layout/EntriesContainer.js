@@ -5,6 +5,8 @@ import RevenuesContext from "../../Store/revenues-context";
 
 const EntriesContainer = (props) => {
   const ctx = useContext(RevenuesContext);
+
+  
   return (
     <div className={classes.container}>
       <header className={classes.header}>
@@ -13,17 +15,23 @@ const EntriesContainer = (props) => {
           Add
         </button>
       </header>
-      {ctx.revenuesItems.map((revenue) => {
-        return (
-          <Entry
-            title={revenue.title}
-            category={revenue.category}
-            price={revenue.price}
-            id={revenue.id}
-            key={revenue.id}
-          />
-        );
-      })}
+      {ctx.revenuesItems.length === 0 ? (
+        <p className={classes.info}>
+          There are no {props.name.toLowerCase()} in this month.
+        </p>
+      ) : (
+        ctx.revenuesItems.map((revenue) => {
+          return (
+            <Entry
+              title={revenue.title}
+              category={revenue.category}
+              price={revenue.price}
+              id={revenue.id}
+              key={revenue.id}
+            />
+          );
+        })
+      )}
     </div>
   );
 };

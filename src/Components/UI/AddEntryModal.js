@@ -71,6 +71,7 @@ const AddEntryModal = (props) => {
             onChange={changeCategoryHandler}
             // value={setCategory}
           >
+            <option value="">Category</option>
             <option value="House">House</option>
             <option value="Bills">Bills</option>
             <option value="Food">Food</option>
