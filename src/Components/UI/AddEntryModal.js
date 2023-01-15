@@ -45,6 +45,7 @@ const AddEntryModal = (props) => {
     //   console.log("Enter valid price");
     // }
     ctx.addItem(addedItem);
+    props.onCloseModal();
   };
 
   return (
