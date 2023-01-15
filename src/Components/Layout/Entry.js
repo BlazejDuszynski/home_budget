@@ -1,4 +1,5 @@
 import classes from "./Entry.module.css";
+import { CiCircleRemove } from "react-icons/ci";
 
 const Entry = () => {
   return (
@@ -8,7 +9,9 @@ const Entry = () => {
         <div className={classes.category}>Category</div>
       </div>
       <p>12,99</p>
-      <p>Delete</p>
+      <p>
+        <CiCircleRemove className={classes.trash} />
+      </p>
     </li>
   );
 };

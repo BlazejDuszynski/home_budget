@@ -24,7 +24,7 @@ const Main = () => {
         name="Revenues"
         onOpenModal={openAddEntryModalHandler}
       />
-      <Summary />
+      {/* <Summary /> */}
       <EntriesContainer name="Expenses" />
     </main>
   );
