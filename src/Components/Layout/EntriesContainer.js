@@ -8,6 +8,17 @@ const EntriesContainer = (props) => {
   const revenuesCtx = useContext(RevenuesContext);
   const dateCtx = useContext(DateContext);
 
+  const chosenMonth = dateCtx.date.getMonth();
+  const chosenYear = dateCtx.date.getFullYear();
+  console.log(chosenMonth);
+  console.log(chosenYear);
+
+  const filteredRevenues = revenuesCtx.revenuesItems.filter((revenueItem) => {
+    const revenueMonth = new Date(revenueItem.date).getMonth();
+    const revenueYear = new Date(revenueItem.date).getFullYear();
+    return chosenMonth === revenueMonth && chosenYear === revenueYear;
+  });
+
   return (
     <div className={classes.container}>
       <header className={classes.header}>
@@ -16,12 +27,12 @@ const EntriesContainer = (props) => {
           Add
         </button>
       </header>
-      {revenuesCtx.revenuesItems.length === 0 ? (
+      {filteredRevenues.length === 0 ? (
         <p className={classes.info}>
           There are no {props.name.toLowerCase()} in this month.
         </p>
       ) : (
-        revenuesCtx.revenuesItems.map((revenue) => {
+        filteredRevenues.map((revenue) => {
           return (
             <Entry
               title={revenue.title}
