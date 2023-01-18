@@ -8,10 +8,10 @@ const EntriesContainer = (props) => {
   const revenuesCtx = useContext(RevenuesContext);
   const dateCtx = useContext(DateContext);
 
+  console.log(dateCtx.date);
+
   const chosenMonth = dateCtx.date.getMonth();
   const chosenYear = dateCtx.date.getFullYear();
-  console.log(chosenMonth);
-  console.log(chosenYear);
 
   const filteredRevenues = revenuesCtx.revenuesItems.filter((revenueItem) => {
     const revenueMonth = new Date(revenueItem.date).getMonth();

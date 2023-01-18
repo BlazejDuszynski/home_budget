@@ -14,6 +14,8 @@ const DateProvider = (props) => {
     setDate(newDate);
   };
 
+  console.log(date);
+
   const dateContext = {
     date: date,
     oneMonthUp: chooseNextMonthHandler,

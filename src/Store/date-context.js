@@ -1,7 +1,7 @@
 import React from "react";
 
 const DateContext = React.createContext({
-  date: "",
+  date: new Date(),
   oneMonthUp: () => {},
   oneMonthDown: () => {},
 });
