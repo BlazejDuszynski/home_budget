@@ -1,23 +1,29 @@
 import classes from "./EntriesContainer.module.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Entry from "./Entry";
 import RevenuesContext from "../../Store/revenues-context";
 import DateContext from "../../Store/date-context";
 
 const EntriesContainer = (props) => {
   const revenuesCtx = useContext(RevenuesContext);
-  const dateCtx = useContext(DateContext);
+  const { date } = useContext(DateContext);
+  const [filteredRevenues, setFilteredRevenues] = useState([
+    revenuesCtx.revenuesItems,
+  ]);
 
-  console.log(dateCtx.date);
+  const chosenMonth = date.getMonth();
+  const chosenYear = date.getFullYear();
 
-  const chosenMonth = dateCtx.date.getMonth();
-  const chosenYear = dateCtx.date.getFullYear();
-
-  const filteredRevenues = revenuesCtx.revenuesItems.filter((revenueItem) => {
-    const revenueMonth = new Date(revenueItem.date).getMonth();
-    const revenueYear = new Date(revenueItem.date).getFullYear();
-    return chosenMonth === revenueMonth && chosenYear === revenueYear;
-  });
+  useEffect(() => {
+    setFilteredRevenues(
+      revenuesCtx.revenuesItems.filter(({ date: revenueDate }) => {
+        const revenueMonth = revenueDate.getMonth();
+        const revenueYear = revenueDate.getFullYear();
+        return chosenMonth === revenueMonth && chosenYear === revenueYear;
+      })
+    );
+    console.log(date, "sadasd");
+  }, [date]);
 
   return (
     <div className={classes.container}>

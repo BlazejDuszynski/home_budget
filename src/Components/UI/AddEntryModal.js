@@ -4,7 +4,6 @@ import React, { useState, useContext } from "react";
 // import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RevenuesContext from "../../Store/revenues-context";
-import ErrorModal from "./ErrorModal";
 
 const AddEntryModal = (props) => {
   const ctx = useContext(RevenuesContext);
@@ -39,7 +38,7 @@ const AddEntryModal = (props) => {
     title: enteredTitle,
     category: enteredCategory,
     price: enteredPrice,
-    date: enteredDate,
+    date: new Date(enteredDate),
     id: Math.random().toString(),
   };
 
@@ -71,7 +70,9 @@ const AddEntryModal = (props) => {
             type="text"
             placeholder="Title"
             name="title"
-            className={`${!isTitleValid && classes.invalid} ${classes["input"]}`}
+            className={`${!isTitleValid && classes.invalid} ${
+              classes["input"]
+            }`}
             onChange={changeTitleHandler}
             // value={setTitle}
           />
@@ -94,7 +95,9 @@ const AddEntryModal = (props) => {
             min="0.01"
             step="0.01"
             placeholder="Price"
-            className={`${!isPriceValid && classes.invalid} ${classes["input"]}`}
+            className={`${!isPriceValid && classes.invalid} ${
+              classes["input"]
+            }`}
             onChange={changePriceHandler}
             // value={setPrice}
           />

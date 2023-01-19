@@ -1,29 +1,29 @@
 import DateContext from "./date-context";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const DateProvider = (props) => {
   const [date, setDate] = useState(new Date());
 
-  const choosePreviousMonthHandler = () => {
+  const choosePreviousMonthHandler = useCallback(() => {
     const newDate = new Date(date.setMonth(date.getMonth() - 1));
     setDate(newDate);
-  };
+  }, [date]);
 
-  const chooseNextMonthHandler = () => {
+  const chooseNextMonthHandler = useCallback(() => {
     const newDate = new Date(date.setMonth(date.getMonth() + 1));
     setDate(newDate);
-  };
+  }, [date]);
 
   console.log(date);
 
-  const dateContext = {
-    date: date,
-    oneMonthUp: chooseNextMonthHandler,
-    oneMonthDown: choosePreviousMonthHandler,
-  };
-
   return (
-    <DateContext.Provider value={dateContext}>
+    <DateContext.Provider
+      value={{
+        date: date,
+        oneMonthUp: chooseNextMonthHandler,
+        oneMonthDown: choosePreviousMonthHandler,
+      }}
+    >
       {props.children}
     </DateContext.Provider>
   );

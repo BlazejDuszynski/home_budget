@@ -5,7 +5,7 @@ const RevenuesProvider = (props) => {
   const [revenueItems, setRevenuesItems] = useState([]);
 
   const addRevenueHandler = (revenue) => {
-    setRevenuesItems([...revenueItems, revenue]);
+    setRevenuesItems( (prevValue) => [...prevValue, revenue]);
   };
 
   const removeRevenueHandler = (id) => {
