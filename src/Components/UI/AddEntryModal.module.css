@@ -42,12 +42,27 @@
   padding: 20px 0;
 }
 
+.invalid {
+  border: 1px solid red;
+  background-color: rgb(248, 123, 123);
+}
+
 .input {
   margin: 10px 0;
   padding: 10px;
   border: 1px solid grey;
   border-radius: 2em;
   width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .select {

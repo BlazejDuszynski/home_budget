@@ -4,6 +4,7 @@ import React, { useState, useContext } from "react";
 // import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RevenuesContext from "../../Store/revenues-context";
+import ErrorModal from "./ErrorModal";
 
 const AddEntryModal = (props) => {
   const ctx = useContext(RevenuesContext);
@@ -11,9 +12,13 @@ const AddEntryModal = (props) => {
   const [enteredCategory, setEnteredCategory] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [isTitleValid, setIsTitleValid] = useState(true);
+  const [isPriceValid, setIsPriceValid] = useState(true);
+  const [isDateValid, setIsDateValid] = useState(true);
 
   const changeTitleHandler = (event) => {
     setEnteredTitle(event.target.value);
+    setIsTitleValid(true);
   };
 
   const changeCategoryHandler = (event) => {
@@ -22,10 +27,12 @@ const AddEntryModal = (props) => {
 
   const changePriceHandler = (event) => {
     setEnteredPrice(event.target.value);
+    setIsPriceValid(true);
   };
 
   const changeDateHandler = (event) => {
     setEnteredDate(event.target.value);
+    setIsDateValid(true);
   };
 
   const addedItem = {
@@ -38,14 +45,17 @@ const AddEntryModal = (props) => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    // if (title.trim().length === 0) {
-    //   console.log("Enter valid title");
-    // }
-    // if (price <= 0) {
-    //   console.log("Enter valid price");
-    // }
-    ctx.addItem(addedItem);
-    props.onCloseModal();
+    if (enteredTitle.trim().length === 0) {
+      setIsTitleValid(false);
+    } else if (enteredPrice <= 0) {
+      setIsPriceValid(false);
+    } else if (enteredDate.length === 0) {
+      setIsDateValid(false);
+    } else {
+      console.log(enteredDate);
+      ctx.addItem(addedItem);
+      props.onCloseModal();
+    }
   };
 
   return (
@@ -61,7 +71,7 @@ const AddEntryModal = (props) => {
             type="text"
             placeholder="Title"
             name="title"
-            className={classes.input}
+            className={`${!isTitleValid && classes.invalid} ${classes["input"]}`}
             onChange={changeTitleHandler}
             // value={setTitle}
           />
@@ -84,13 +94,15 @@ const AddEntryModal = (props) => {
             min="0.01"
             step="0.01"
             placeholder="Price"
-            className={classes.input}
+            className={`${!isPriceValid && classes.invalid} ${classes["input"]}`}
             onChange={changePriceHandler}
             // value={setPrice}
           />
           <input
             type="date"
-            className={classes.datePicker}
+            className={`${!isDateValid && classes.invalid} ${
+              classes["datePicker"]
+            }`}
             onChange={changeDateHandler}
           />
           <button type="submit" className={classes.submitButton}>
