@@ -25,7 +25,7 @@ const EntriesContainer = (props) => {
       })
     );
     console.log(date, "sadasd");
-  }, [date]);
+  }, [filteredRevenues]);
 
   return (
     <div className={classes.container}>
