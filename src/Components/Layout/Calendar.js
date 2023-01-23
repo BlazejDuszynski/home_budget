@@ -9,6 +9,8 @@ const Calendar = () => {
   const monthCapitalLetter = month.charAt(0).toUpperCase() + month.slice(1);
   const year = ctx.date.getFullYear();
 
+  console.log(ctx.date);
+
   return (
     <div className={classes.datePicker}>
       <button className={classes.datePicker__button} onClick={ctx.oneMonthDown}>

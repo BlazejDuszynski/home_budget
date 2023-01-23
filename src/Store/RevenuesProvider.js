@@ -1,11 +1,11 @@
 import { useState } from "react";
 import RevenuesContext from "./revenues-context";
 
-const RevenuesProvider = (props) => {
+const RevenuesProvider = ({ children }) => {
   const [revenueItems, setRevenuesItems] = useState([]);
 
   const addRevenueHandler = (revenue) => {
-    setRevenuesItems( (prevValue) => [...prevValue, revenue]);
+    setRevenuesItems((prevValue) => [...prevValue, revenue]);
   };
 
   const removeRevenueHandler = (id) => {
@@ -23,7 +23,7 @@ const RevenuesProvider = (props) => {
 
   return (
     <RevenuesContext.Provider value={revenuesContext}>
-      {props.children}
+      {children}
     </RevenuesContext.Provider>
   );
 };

@@ -1,7 +1,7 @@
 import DateContext from "./date-context";
 import { useCallback, useState } from "react";
 
-const DateProvider = (props) => {
+const DateProvider = ({ children }) => {
   const [date, setDate] = useState(new Date());
 
   const choosePreviousMonthHandler = useCallback(() => {
@@ -24,7 +24,7 @@ const DateProvider = (props) => {
         oneMonthDown: choosePreviousMonthHandler,
       }}
     >
-      {props.children}
+      {children}
     </DateContext.Provider>
   );
 };

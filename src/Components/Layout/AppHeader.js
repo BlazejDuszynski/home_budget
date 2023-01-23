@@ -5,9 +5,7 @@ import DateProvider from "../../Store/DateProvider";
 const AppHeader = () => {
   return (
     <header className={classes.header}>
-      <DateProvider>
-        <Calendar />
-      </DateProvider>
+      <Calendar />
     </header>
   );
 };

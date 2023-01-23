@@ -17,19 +17,19 @@ const Main = () => {
   };
 
   return (
-    <DateProvider>
-      <main className={classes.main}>
-        {isAddEntryModalOpen && (
-          <AddEntryModal onCloseModal={closeAddEntryModalHandler} />
-        )}
+    <main className={classes.main}>
+      {isAddEntryModalOpen && (
+        <AddEntryModal onCloseModal={closeAddEntryModalHandler} />
+      )}
+      {/* <DateProvider> */}
         <EntriesContainer
           name="Revenues"
           onOpenModal={openAddEntryModalHandler}
         />
         {/* <Summary /> */}
         <EntriesContainer name="Expenses" />
-      </main>
-    </DateProvider>
+      {/* </DateProvider> */}
+    </main>
   );
 };
 

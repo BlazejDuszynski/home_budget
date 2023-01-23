@@ -11,6 +11,8 @@ const EntriesContainer = (props) => {
     revenuesCtx.revenuesItems,
   ]);
 
+  console.log(date);
+
   const chosenMonth = date.getMonth();
   const chosenYear = date.getFullYear();
 
