@@ -24,8 +24,7 @@ const EntriesContainer = (props) => {
         return chosenMonth === revenueMonth && chosenYear === revenueYear;
       })
     );
-    console.log(date, "sadasd");
-  }, [filteredRevenues]);
+  }, [revenuesCtx.revenuesItems]);
 
   return (
     <div className={classes.container}>
