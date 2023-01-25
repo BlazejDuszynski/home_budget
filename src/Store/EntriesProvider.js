@@ -3,23 +3,31 @@ import RevenuesContext from "./entries-context";
 
 const EntriesProvider = ({ children }) => {
   const [revenueItems, setRevenuesItems] = useState([]);
+  const [expenseItems, setExpenseItems] = useState([]);
 
   const addRevenueHandler = (revenue) => {
     setRevenuesItems((prevValue) => [...prevValue, revenue]);
   };
 
-  const removeRevenueHandler = (id) => {
+  const addExpenseHandler = (expense) => {
+    setExpenseItems((prevValue) => [...prevValue, expense]);
+  };
+
+  const removeEntryHandler = (id) => {
     const updatedRevenues = revenueItems.filter((revenue) => revenue.id !== id);
     setRevenuesItems(updatedRevenues);
   };
 
   const revenuesContext = {
     revenuesItems: revenueItems,
+    expenseItems: expenseItems,
     addRevenue: addRevenueHandler,
-    removeItem: removeRevenueHandler,
+    addExpense: addExpenseHandler,
+    removeItem: removeEntryHandler,
   };
 
   console.log(revenueItems);
+  console.log(expenseItems);
 
   return (
     <RevenuesContext.Provider value={revenuesContext}>

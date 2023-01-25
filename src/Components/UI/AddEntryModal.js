@@ -2,11 +2,11 @@ import classes from "./AddEntryModal.module.css";
 import { Fragment } from "react";
 import React, { useState, useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import RevenuesContext from "../../Store/entries-context";
 import EntryTypeContext from "../../Store/entryType-context";
+import EntriesContext from "../../Store/entries-context";
 
 const AddEntryModal = (props) => {
-  const revenuesCtx = useContext(RevenuesContext);
+  const entriesCtx = useContext(EntriesContext);
   const { entryType } = useContext(EntryTypeContext);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
@@ -53,7 +53,11 @@ const AddEntryModal = (props) => {
       setIsDateValid(false);
     } else {
       console.log(enteredDate);
-      revenuesCtx.addRevenue(addedItem);
+      if (entryType === "Revenues") {
+        entriesCtx.addRevenue(addedItem);
+      } else {
+        entriesCtx.addExpense(addedItem);
+      }
       props.onCloseModal();
     }
   };
