@@ -20,7 +20,7 @@ const EntriesContainer = (props) => {
     let entriesItems;
     if (props.name === "Revenues") {
       entriesItems = revenuesItems;
-    } else {
+    } else if (props.name === "Expenses") {
       entriesItems = expenseItems;
     }
     setFilteredEntries(
