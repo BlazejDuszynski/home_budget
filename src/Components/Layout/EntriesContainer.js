@@ -1,17 +1,15 @@
 import classes from "./EntriesContainer.module.css";
 import { useContext, useEffect, useState } from "react";
 import Entry from "./Entry";
-import RevenuesContext from "../../Store/entries-context";
+import EntriesContext from "../../Store/entries-context";
 import EntryTypeContext from "../../Store/entryType-context";
 import DateContext from "../../Store/date-context";
 
 const EntriesContainer = (props) => {
-  const revenuesCtx = useContext(RevenuesContext);
+  const { revenuesItems, expenseItems } = useContext(EntriesContext);
   const entryTypeCtx = useContext(EntryTypeContext);
   const { date } = useContext(DateContext);
-  const [filteredRevenues, setFilteredRevenues] = useState([
-    revenuesCtx.revenuesItems,
-  ]);
+  const [filteredEntries, setFilteredEntries] = useState([revenuesItems]);
 
   console.log(date);
 
@@ -19,14 +17,20 @@ const EntriesContainer = (props) => {
   const chosenYear = date.getFullYear();
 
   useEffect(() => {
-    setFilteredRevenues(
-      revenuesCtx.revenuesItems.filter(({ date: revenueDate }) => {
-        const revenueMonth = revenueDate.getMonth();
-        const revenueYear = revenueDate.getFullYear();
+    let entriesItems;
+    if (props.name === "Revenues") {
+      entriesItems = revenuesItems;
+    } else {
+      entriesItems = expenseItems;
+    }
+    setFilteredEntries(
+      entriesItems.filter(({ date: entryDate }) => {
+        const revenueMonth = entryDate.getMonth();
+        const revenueYear = entryDate.getFullYear();
         return chosenMonth === revenueMonth && chosenYear === revenueYear;
       })
     );
-  }, [revenuesCtx.revenuesItems]);
+  }, [revenuesItems || expenseItems]);
 
   const openSpecifiedEntryModalHandler = () => {
     entryTypeCtx.changeEntryType(props.name);
@@ -44,19 +48,19 @@ const EntriesContainer = (props) => {
           Add
         </button>
       </header>
-      {filteredRevenues.length === 0 ? (
+      {filteredEntries.length === 0 ? (
         <p className={classes.info}>
           There are no {props.name.toLowerCase()} in this month.
         </p>
       ) : (
-        filteredRevenues.map((revenue) => {
+        filteredEntries.map((entry) => {
           return (
             <Entry
-              title={revenue.title}
-              category={revenue.category}
-              price={revenue.price}
-              id={revenue.id}
-              key={revenue.id}
+              title={entry.title}
+              category={entry.category}
+              price={entry.price}
+              id={entry.id}
+              key={entry.id}
             />
           );
         })
