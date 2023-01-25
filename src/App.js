@@ -3,16 +3,16 @@ import "./App.css";
 import AppHeader from "./Components/Layout/AppHeader";
 import Main from "./Components/UI/Main";
 import DateProvider from "./Store/DateProvider";
-import RevenuesProvider from "./Store/RevenuesProvider";
+import EntriesProvider from "./Store/EntriesProvider";
 
 function App() {
   return (
     <Fragment>
       <DateProvider>
         <AppHeader />
-        <RevenuesProvider>
+        <EntriesProvider>
           <Main />
-        </RevenuesProvider>
+        </EntriesProvider>
       </DateProvider>
     </Fragment>
   );

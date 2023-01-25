@@ -1,7 +1,7 @@
 import classes from "./Entry.module.css";
 import { CiCircleRemove } from "react-icons/ci";
 import { useContext } from "react";
-import RevenuesContext from "../../Store/revenues-context";
+import RevenuesContext from "../../Store/entries-context";
 
 const Entry = (props) => {
   const ctx = useContext(RevenuesContext);

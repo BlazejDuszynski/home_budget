@@ -1,7 +1,7 @@
 import { useState } from "react";
-import RevenuesContext from "./revenues-context";
+import RevenuesContext from "./entries-context";
 
-const RevenuesProvider = ({ children }) => {
+const EntriesProvider = ({ children }) => {
   const [revenueItems, setRevenuesItems] = useState([]);
 
   const addRevenueHandler = (revenue) => {
@@ -15,7 +15,7 @@ const RevenuesProvider = ({ children }) => {
 
   const revenuesContext = {
     revenuesItems: revenueItems,
-    addItem: addRevenueHandler,
+    addRevenue: addRevenueHandler,
     removeItem: removeRevenueHandler,
   };
 
@@ -28,4 +28,4 @@ const RevenuesProvider = ({ children }) => {
   );
 };
 
-export default RevenuesProvider;
+export default EntriesProvider;

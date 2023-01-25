@@ -2,7 +2,7 @@ import classes from "./AddEntryModal.module.css";
 import { Fragment } from "react";
 import React, { useState, useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import RevenuesContext from "../../Store/revenues-context";
+import RevenuesContext from "../../Store/entries-context";
 import EntryTypeContext from "../../Store/entryType-context";
 
 const AddEntryModal = (props) => {

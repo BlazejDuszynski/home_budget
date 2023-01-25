@@ -1,7 +1,7 @@
 import classes from "./EntriesContainer.module.css";
 import { useContext, useEffect, useState } from "react";
 import Entry from "./Entry";
-import RevenuesContext from "../../Store/revenues-context";
+import RevenuesContext from "../../Store/entries-context";
 import EntryTypeContext from "../../Store/entryType-context";
 import DateContext from "../../Store/date-context";
 
