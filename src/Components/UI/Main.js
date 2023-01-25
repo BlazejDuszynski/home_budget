@@ -1,4 +1,5 @@
 import { useState } from "react";
+import EntryTypeProvider from "../../Store/EntryTypeProvider";
 import EntriesContainer from "../Layout/EntriesContainer";
 import AddEntryModal from "./AddEntryModal";
 import classes from "./Main.module.css";
@@ -16,9 +17,11 @@ const Main = () => {
 
   return (
     <main className={classes.main}>
-      {isAddEntryModalOpen && (
-        <AddEntryModal onCloseModal={closeAddEntryModalHandler} />
-      )}
+      <EntryTypeProvider>
+        {isAddEntryModalOpen && (
+          <AddEntryModal onCloseModal={closeAddEntryModalHandler} />
+        )}
+      </EntryTypeProvider>
       {/* <DateProvider> */}
       <EntriesContainer
         name="Revenues"

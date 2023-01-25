@@ -2,7 +2,7 @@ import React from "react";
 
 const EntryTypeContext = React.createContext({
   entryType: "",
-  changeEntryType: () => {},
+  changeEntryType: (type) => {},
 });
 
 export default EntryTypeContext;

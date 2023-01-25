@@ -4,14 +4,16 @@ import EntryTypeContext from "./entryType-context";
 const EntryTypeProvider = ({ children }) => {
   const [updatedEntryType, setUpdatedEntryType] = useState("");
 
-  const updateEntryTypeHandler = (type) => {
+  const changeEntryTypeHandler = (type) => {
     setUpdatedEntryType(type);
   };
 
   const entryTypeContext = {
     entryType: updatedEntryType,
-    updatedEntryType: updateEntryTypeHandler,
+    changeEntryType: changeEntryTypeHandler,
   };
+
+  console.log(updatedEntryType);
 
   return (
     <EntryTypeContext.Provider value={entryTypeContext}>
