@@ -6,7 +6,7 @@ import EntryTypeContext from "../../Store/entryType-context";
 import EntriesContext from "../../Store/entries-context";
 
 const AddEntryModal = (props) => {
-  const entriesCtx = useContext(EntriesContext);
+  const { addRevenue, addExpense } = useContext(EntriesContext);
   const { entryType } = useContext(EntryTypeContext);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
@@ -54,9 +54,9 @@ const AddEntryModal = (props) => {
     } else {
       console.log(enteredDate);
       if (entryType === "Revenues") {
-        entriesCtx.addRevenue(addedItem);
+        addRevenue(addedItem);
       } else {
-        entriesCtx.addExpense(addedItem);
+        addExpense(addedItem);
       }
       props.onCloseModal();
     }
