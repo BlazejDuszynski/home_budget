@@ -3,9 +3,11 @@ import { Fragment } from "react";
 import React, { useState, useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import RevenuesContext from "../../Store/revenues-context";
+import EntryTypeContext from "../../Store/entryType-context";
 
 const AddEntryModal = (props) => {
   const revenuesCtx = useContext(RevenuesContext);
+  const { entryType } = useContext(EntryTypeContext);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
@@ -51,7 +53,7 @@ const AddEntryModal = (props) => {
       setIsDateValid(false);
     } else {
       console.log(enteredDate);
-      revenuesCtx.addItem(addedItem);
+      revenuesCtx.addRevenue(addedItem);
       props.onCloseModal();
     }
   };

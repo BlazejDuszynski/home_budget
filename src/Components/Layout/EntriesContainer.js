@@ -29,9 +29,7 @@ const EntriesContainer = (props) => {
   }, [revenuesCtx.revenuesItems]);
 
   const openSpecifiedEntryModalHandler = () => {
-    const newType = props.name;
-    entryTypeCtx.changeEntryType(newType);
-    console.log(newType);
+    entryTypeCtx.changeEntryType(props.name);
     props.onOpenModal();
   };
 
