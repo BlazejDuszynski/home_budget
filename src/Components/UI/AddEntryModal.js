@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import RevenuesContext from "../../Store/revenues-context";
 
 const AddEntryModal = (props) => {
-  const ctx = useContext(RevenuesContext);
+  const revenuesCtx = useContext(RevenuesContext);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
@@ -51,7 +51,7 @@ const AddEntryModal = (props) => {
       setIsDateValid(false);
     } else {
       console.log(enteredDate);
-      ctx.addItem(addedItem);
+      revenuesCtx.addItem(addedItem);
       props.onCloseModal();
     }
   };
