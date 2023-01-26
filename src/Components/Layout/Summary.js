@@ -4,7 +4,15 @@ const Summary = (props) => {
   return (
     <div className={classes.summary}>
       <h3>TOTAL</h3>
-      <p className={classes.amount}>{props.total}</p>
+      <p
+        className={`${
+          props.type === "Expenses"
+            ? classes.expenseColor
+            : classes.revenueColor
+        } ${classes["amount"]}`}
+      >
+        {props.total}
+      </p>
     </div>
   );
 };

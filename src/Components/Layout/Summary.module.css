@@ -1,13 +1,21 @@
 .summary {
   display: flex;
-  padding: 0 40px;
+  gap: 10px;
+  padding: 0 30%;
   margin: 0;
   border-top: 2px solid grey;
-  justify-content: flex-end;
-  gap: 40px;
+  justify-content: space-around;
   align-items: center;
 }
 
 .amount {
-    font-size: 1.2em;
+  font-size: 1.2em;
+}
+
+.revenueColor {
+  color: rgb(0, 92, 0);
+}
+
+.expenseColor {
+  color: rgb(173, 0, 0);
 }
