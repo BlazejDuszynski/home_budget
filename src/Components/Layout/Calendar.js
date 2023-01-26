@@ -1,6 +1,7 @@
 import classes from "./Calendar.module.css";
 import { useContext } from "react";
 import DateContext from "../../Store/date-context";
+import { MdOutlineArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
 const Calendar = () => {
   const ctx = useContext(DateContext);
@@ -13,16 +14,18 @@ const Calendar = () => {
 
   return (
     <div className={classes.datePicker}>
-      <button className={classes.datePicker__button} onClick={ctx.oneMonthDown}>
-        -
-      </button>
+      <MdArrowBackIos
+        className={classes.datePicker__button}
+        onClick={ctx.oneMonthDown}
+      />
       <div className={classes.datePicker__content}>
         <p>{monthCapitalLetter}</p>
         <p>{year}</p>
       </div>
-      <button className={classes.datePicker__button} onClick={ctx.oneMonthUp}>
-        +
-      </button>
+      <MdOutlineArrowForwardIos
+        className={classes.datePicker__button}
+        onClick={ctx.oneMonthUp}
+      />
     </div>
   );
 };

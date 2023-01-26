@@ -12,7 +12,6 @@
   border: none;
   cursor: pointer;
   display: flex;
-  font-size: 1em;
 }
 
 .datePicker__content {
