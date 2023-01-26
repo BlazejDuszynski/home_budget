@@ -1,0 +1,9 @@
+.summary {
+  display: flex;
+  padding: 0 40px;
+  margin: 0;
+  border-top: 2px solid grey;
+  justify-content: flex-end;
+  gap: 40px;
+  align-items: center;
+}

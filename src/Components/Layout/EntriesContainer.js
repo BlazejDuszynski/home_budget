@@ -4,6 +4,7 @@ import Entry from "./Entry";
 import EntriesContext from "../../Store/entries-context";
 import EntryTypeContext from "../../Store/entryType-context";
 import DateContext from "../../Store/date-context";
+import Summary from "./Summary";
 
 const EntriesContainer = (props) => {
   const entriesCtx = useContext(EntriesContext);
@@ -15,6 +16,14 @@ const EntriesContainer = (props) => {
 
   const chosenMonth = date.getMonth();
   const chosenYear = date.getFullYear();
+  let totalValueOfEntriesItems = filteredEntries.reduce((total, item) => {
+    return (total = (+total + +item.value));
+  }, []);
+
+  let formattedTotalValue = new Intl.NumberFormat("pl-PL", {
+    style: "currency",
+    currency: "PLN",
+  }).format(totalValueOfEntriesItems);
 
   useEffect(() => {
     let entriesItems;
@@ -23,7 +32,6 @@ const EntriesContainer = (props) => {
     } else if (props.name === "Expenses") {
       entriesItems = entriesCtx.expenseItems;
     }
-    console.log(entriesItems);
     setFilteredEntries(
       entriesItems.filter(({ date: entryDate }) => {
         const revenueMonth = entryDate.getMonth();
@@ -67,7 +75,7 @@ const EntriesContainer = (props) => {
           );
         })
       )}
-      <p className={classes.total}>Total xxx</p>
+      <Summary total={formattedTotalValue} />
     </div>
   );
 };
