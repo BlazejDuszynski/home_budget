@@ -39,3 +39,8 @@
     transform: scale(1);
   }
 }
+
+.total {
+  border-top: 2px solid grey;
+  margin: 0;
+}

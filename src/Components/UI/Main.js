@@ -21,17 +21,14 @@ const Main = () => {
         {isAddEntryModalOpen && (
           <AddEntryModal onCloseModal={closeAddEntryModalHandler} />
         )}
-        {/* <DateProvider> */}
         <EntriesContainer
           name="Revenues"
           onOpenModal={openAddEntryModalHandler}
         />
-        {/* <Summary /> */}
         <EntriesContainer
           name="Expenses"
           onOpenModal={openAddEntryModalHandler}
         />
-        {/* </DateProvider> */}
       </main>
     </EntryTypeProvider>
   );

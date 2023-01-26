@@ -67,6 +67,7 @@ const EntriesContainer = (props) => {
           );
         })
       )}
+      <p className={classes.total}>Total xxx</p>
     </div>
   );
 };
