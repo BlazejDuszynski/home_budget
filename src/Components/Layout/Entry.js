@@ -1,5 +1,5 @@
 import classes from "./Entry.module.css";
-import { CiCircleRemove } from "react-icons/ci";
+import { FiEdit } from "react-icons/fi";
 import { BsTrash } from "react-icons/bs";
 import { useContext } from "react";
 import RevenuesContext from "../../Store/entries-context";
@@ -31,6 +31,7 @@ const Entry = (props) => {
       >
         {formattedValue}
       </p>
+      <FiEdit className={classes.edit} />
       <BsTrash className={classes.trash} onClick={removeItemHandler} />
     </li>
   );
