@@ -6,10 +6,10 @@ import EntryTypeContext from "../../Store/entryType-context";
 import DateContext from "../../Store/date-context";
 
 const EntriesContainer = (props) => {
-  const { revenuesItems, expenseItems } = useContext(EntriesContext);
+  const entriesCtx = useContext(EntriesContext);
   const entryTypeCtx = useContext(EntryTypeContext);
   const { date } = useContext(DateContext);
-  const [filteredEntries, setFilteredEntries] = useState([revenuesItems]);
+  const [filteredEntries, setFilteredEntries] = useState([]);
 
   console.log(date);
 
@@ -19,10 +19,11 @@ const EntriesContainer = (props) => {
   useEffect(() => {
     let entriesItems;
     if (props.name === "Revenues") {
-      entriesItems = revenuesItems;
+      entriesItems = entriesCtx.revenuesItems;
     } else if (props.name === "Expenses") {
-      entriesItems = expenseItems;
+      entriesItems = entriesCtx.expenseItems;
     }
+    console.log(entriesItems);
     setFilteredEntries(
       entriesItems.filter(({ date: entryDate }) => {
         const revenueMonth = entryDate.getMonth();
@@ -30,7 +31,7 @@ const EntriesContainer = (props) => {
         return chosenMonth === revenueMonth && chosenYear === revenueYear;
       })
     );
-  }, [revenuesItems || expenseItems]);
+  }, [entriesCtx, date]);
 
   const openSpecifiedEntryModalHandler = () => {
     entryTypeCtx.changeEntryType(props.name);
