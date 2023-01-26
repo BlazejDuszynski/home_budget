@@ -16,6 +16,8 @@ const AddEntryModal = (props) => {
   const [isPriceValid, setIsPriceValid] = useState(true);
   const [isDateValid, setIsDateValid] = useState(true);
 
+  const splicedEntryType = entryType.slice(0, entryType.length - 1);
+
   const changeTitleHandler = (event) => {
     setEnteredTitle(event.target.value);
     setIsTitleValid(true);
@@ -67,7 +69,7 @@ const AddEntryModal = (props) => {
       <div className={classes.backdrop} onClick={props.onCloseModal}></div>
       <div className={classes.modal}>
         <header className={classes.header}>
-          <p>Add revenue</p>
+          <p>Add {splicedEntryType.toLowerCase()}</p>
           {/* <button className={classes.closeButton}>X</button> */}
         </header>
         <form className={classes.form} onSubmit={submitFormHandler}>
