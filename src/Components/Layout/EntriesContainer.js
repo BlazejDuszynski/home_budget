@@ -17,7 +17,7 @@ const EntriesContainer = (props) => {
   const chosenMonth = date.getMonth();
   const chosenYear = date.getFullYear();
   let totalValueOfEntriesItems = filteredEntries.reduce((total, item) => {
-    return (total = (+total + +item.value));
+    return (total = +total + +item.value);
   }, []);
 
   let formattedTotalValue = new Intl.NumberFormat("pl-PL", {
@@ -75,7 +75,9 @@ const EntriesContainer = (props) => {
           );
         })
       )}
-      {filteredEntries.length > 0 && <Summary total={formattedTotalValue} />}
+      {filteredEntries.length > 0 && (
+        <Summary total={formattedTotalValue} type={props.name} />
+      )}
     </div>
   );
 };
