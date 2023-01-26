@@ -62,6 +62,7 @@ const EntriesContainer = (props) => {
               value={entry.value}
               id={entry.id}
               key={entry.id}
+              type={props.name}
             />
           );
         })

@@ -43,6 +43,7 @@ const AddEntryModal = (props) => {
     value: enteredValue,
     date: new Date(enteredDate),
     id: Math.random().toString(),
+    type: entryType,
   };
 
   const submitFormHandler = (event) => {

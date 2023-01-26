@@ -10,13 +10,26 @@ const Entry = (props) => {
     ctx.removeItem(props.id);
   };
 
+  const formattedValue = new Intl.NumberFormat("pl-PL", {
+    style: "currency",
+    currency: "PLN",
+  }).format(props.value);
+
   return (
     <li className={classes.entry}>
       <div className={classes.description}>
         <div className={classes.title}>{props.title}</div>
         <div className={classes.category}>{props.category}</div>
       </div>
-      <p className={classes.price}>{props.price} PLN</p>
+      <p
+        className={`${
+          props.type === "Revenues"
+            ? classes.revenueColor
+            : classes.expenseColor
+        } ${classes["price"]}`}
+      >
+        {formattedValue}
+      </p>
       <CiCircleRemove className={classes.trash} onClick={removeItemHandler} />
     </li>
   );

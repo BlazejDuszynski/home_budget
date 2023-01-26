@@ -26,6 +26,14 @@
   flex-basis: 30%;
 }
 
+.revenueColor {
+  color: rgb(0, 92, 0);
+}
+
+.expenseColor {
+  color: rgb(173, 0, 0);
+}
+
 .trash {
   cursor: pointer;
   color: rgb(173, 0, 0);
