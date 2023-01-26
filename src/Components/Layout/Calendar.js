@@ -23,7 +23,10 @@ const Calendar = () => {
       <div className={classes.datePicker__content}>
         <p>{monthCapitalLetter}</p>
         <p>{year}</p>
-        <button className={classes.revertButton}>
+        <button
+          className={classes.revertButton}
+          onClick={ctx.getBackCurrentDate}
+        >
           Go back to {currentMonth} {currentYear}
         </button>
       </div>

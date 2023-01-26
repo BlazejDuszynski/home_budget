@@ -14,6 +14,10 @@ const DateProvider = ({ children }) => {
     setDate(newDate);
   }, [date]);
 
+  const chooseCurrentDateHandler = () => {
+    setDate(new Date());
+  };
+
   console.log(date);
 
   return (
@@ -22,6 +26,7 @@ const DateProvider = ({ children }) => {
         date: date,
         oneMonthUp: chooseNextMonthHandler,
         oneMonthDown: choosePreviousMonthHandler,
+        getBackCurrentDate: chooseCurrentDateHandler,
       }}
     >
       {children}

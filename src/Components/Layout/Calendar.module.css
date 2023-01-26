@@ -24,7 +24,7 @@
 
 .revertButton {
   position: absolute;
-  bottom: -10px;
+  bottom: 0px;
   font-size: 0.5em;
   border: none;
   background-color: inherit;
