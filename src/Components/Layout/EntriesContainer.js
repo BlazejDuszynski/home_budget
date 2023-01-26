@@ -59,7 +59,7 @@ const EntriesContainer = (props) => {
             <Entry
               title={entry.title}
               category={entry.category}
-              price={entry.price}
+              value={entry.value}
               id={entry.id}
               key={entry.id}
             />

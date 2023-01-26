@@ -10,10 +10,10 @@ const AddEntryModal = (props) => {
   const { entryType } = useContext(EntryTypeContext);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredCategory, setEnteredCategory] = useState("");
-  const [enteredPrice, setEnteredPrice] = useState("");
+  const [enteredValue, setEnteredValue] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [isTitleValid, setIsTitleValid] = useState(true);
-  const [isPriceValid, setIsPriceValid] = useState(true);
+  const [isValueValid, setIsValueValid] = useState(true);
   const [isDateValid, setIsDateValid] = useState(true);
 
   const splicedEntryType = entryType.slice(0, entryType.length - 1);
@@ -27,9 +27,9 @@ const AddEntryModal = (props) => {
     setEnteredCategory(event.target.value);
   };
 
-  const changePriceHandler = (event) => {
-    setEnteredPrice(event.target.value);
-    setIsPriceValid(true);
+  const changeValueHandler = (event) => {
+    setEnteredValue(event.target.value);
+    setIsValueValid(true);
   };
 
   const changeDateHandler = (event) => {
@@ -40,7 +40,7 @@ const AddEntryModal = (props) => {
   const addedItem = {
     title: enteredTitle,
     category: enteredCategory,
-    price: enteredPrice,
+    value: enteredValue,
     date: new Date(enteredDate),
     id: Math.random().toString(),
   };
@@ -49,8 +49,8 @@ const AddEntryModal = (props) => {
     event.preventDefault();
     if (enteredTitle.trim().length === 0) {
       setIsTitleValid(false);
-    } else if (enteredPrice <= 0) {
-      setIsPriceValid(false);
+    } else if (enteredValue <= 0) {
+      setIsValueValid(false);
     } else if (enteredDate.length === 0) {
       setIsDateValid(false);
     } else {
@@ -105,10 +105,10 @@ const AddEntryModal = (props) => {
             min="0.01"
             step="0.01"
             placeholder="Value"
-            className={`${!isPriceValid && classes.invalid} ${
+            className={`${!isValueValid && classes.invalid} ${
               classes["input"]
             }`}
-            onChange={changePriceHandler}
+            onChange={changeValueHandler}
             // value={setPrice}
           />
           <input
