@@ -75,7 +75,7 @@ const EntriesContainer = (props) => {
           );
         })
       )}
-      <Summary total={formattedTotalValue} />
+      {filteredEntries.length > 0 && <Summary total={formattedTotalValue} />}
     </div>
   );
 };
