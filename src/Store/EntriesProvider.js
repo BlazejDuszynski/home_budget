@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RevenuesContext from "./entries-context";
+import EntriesContext from "./entries-context";
 
 const EntriesProvider = ({ children }) => {
   const [revenueItems, setRevenuesItems] = useState([]);
@@ -18,7 +18,7 @@ const EntriesProvider = ({ children }) => {
     setRevenuesItems(updatedRevenues);
   };
 
-  const revenuesContext = {
+  const entriesContext = {
     revenuesItems: revenueItems,
     expenseItems: expenseItems,
     addRevenue: addRevenueHandler,
@@ -30,9 +30,9 @@ const EntriesProvider = ({ children }) => {
   console.log(expenseItems);
 
   return (
-    <RevenuesContext.Provider value={revenuesContext}>
+    <EntriesContext.Provider value={entriesContext}>
       {children}
-    </RevenuesContext.Provider>
+    </EntriesContext.Provider>
   );
 };
 

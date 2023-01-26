@@ -83,25 +83,28 @@ const AddEntryModal = (props) => {
             onChange={changeTitleHandler}
             // value={setTitle}
           />
-          <select
-            name="category"
-            className={classes.select}
-            onChange={changeCategoryHandler}
-            // value={setCategory}
-          >
-            <option value="">Category</option>
-            <option value="House">House</option>
-            <option value="Bills">Bills</option>
-            <option value="Food">Food</option>
-            <option value="Car">Car</option>
-            <option value="Clothes">Clothes</option>
-            <option value="Fun">Fun</option>
-          </select>
+          {entryType === "Expenses" && (
+            <select
+              name="category"
+              className={classes.select}
+              onChange={changeCategoryHandler}
+              // value={setCategory}
+            >
+              <option value="">Category</option>
+              <option value="House">House</option>
+              <option value="Bills">Bills</option>
+              <option value="Food">Food</option>
+              <option value="Car">Car</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Fun">Fun</option>
+            </select>
+          )}
+
           <input
             type="number"
             min="0.01"
             step="0.01"
-            placeholder="Price"
+            placeholder="Value"
             className={`${!isPriceValid && classes.invalid} ${
               classes["input"]
             }`}
