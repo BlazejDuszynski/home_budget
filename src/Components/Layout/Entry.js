@@ -22,6 +22,8 @@ const Entry = (props) => {
         <div className={classes.title}>{props.title}</div>
         <div className={classes.category}>{props.category}</div>
       </div>
+      <FiEdit className={classes.edit} />
+      <BsTrash className={classes.trash} onClick={removeItemHandler} />
       <p
         className={`${
           props.type === "Revenues"
@@ -31,8 +33,6 @@ const Entry = (props) => {
       >
         {formattedValue}
       </p>
-      <FiEdit className={classes.edit} />
-      <BsTrash className={classes.trash} onClick={removeItemHandler} />
     </li>
   );
 };
