@@ -16,13 +16,17 @@ const Entry = (props) => {
     currency: "PLN",
   }).format(props.value);
 
+  const editEntryHandler = () => {
+    props.open();
+  };
+
   return (
     <li className={classes.entry}>
       <div className={classes.description}>
         <div className={classes.title}>{props.title}</div>
         <div className={classes.category}>{props.category}</div>
       </div>
-      <FiEdit className={classes.edit} />
+      <FiEdit className={classes.edit} onClick={editEntryHandler} />
       <BsTrash className={classes.trash} onClick={removeItemHandler} />
       <p
         className={`${

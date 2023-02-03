@@ -71,6 +71,7 @@ const EntriesContainer = (props) => {
               id={entry.id}
               key={entry.id}
               type={props.name}
+              open={props.onOpenModal}
             />
           );
         })
