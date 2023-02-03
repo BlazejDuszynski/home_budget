@@ -9,10 +9,12 @@ const Calendar = () => {
   const month = ctx.date.toLocaleString("default", { month: "long" });
   const monthCapitalLetter = month.charAt(0).toUpperCase() + month.slice(1);
   const year = ctx.date.getFullYear();
+  const dateString = month + " " + year;
 
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString("default", { month: "long" });
   const currentYear = currentDate.getFullYear();
+  const currentDateString = currentMonth + " " + currentYear;
 
   return (
     <div className={classes.datePicker}>
@@ -23,12 +25,16 @@ const Calendar = () => {
       <div className={classes.datePicker__content}>
         <p>{monthCapitalLetter}</p>
         <p>{year}</p>
-        <button
-          className={classes.revertButton}
-          onClick={ctx.getBackCurrentDate}
-        >
-          Go back to {currentMonth} {currentYear}
-        </button>
+        {dateString !== currentDateString && (
+          <button
+            className={classes.revertButton}
+            onClick={ctx.getBackCurrentDate}
+          >
+            <div>
+              Go back to {currentMonth} {currentYear}
+            </div>
+          </button>
+        )}
       </div>
       <MdOutlineArrowForwardIos
         className={classes.datePicker__button}
