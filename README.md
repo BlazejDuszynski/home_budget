@@ -1,6 +1,6 @@
 # Home budget - take control over your money and track revenues and expenses!
 
-Landing page built with HTML, CSS and JavaScript deployed on Hostinger.
+Desktop application for tracking monthly expenses and revenues developed using HTML5, CSS3, JavaScript, React.js. 
 
 ## Table of contents
 * [General info](#general-info)
@@ -8,11 +8,11 @@ Landing page built with HTML, CSS and JavaScript deployed on Hostinger.
 
 ## General info
 
-This is a website of Safeti company. You can find here list of services provided by this company, short description of each of them and contact section.
+This is application where you can track your revenues and expenses, add them by category and show monthly. 
 
 ## Technologies
 
 - HTML5
 - CSS3
 - JavaScript
-- GSAP
+- React.js
