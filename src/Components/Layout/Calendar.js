@@ -6,7 +6,9 @@ import { MdOutlineArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 const Calendar = () => {
   const ctx = useContext(DateContext);
 
-  const month = ctx.date.toLocaleString("default", { month: "long" });
+  const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
+    ctx.date
+  );
   const monthCapitalLetter = month.charAt(0).toUpperCase() + month.slice(1);
   const year = ctx.date.getFullYear();
   const dateString = month + " " + year;
