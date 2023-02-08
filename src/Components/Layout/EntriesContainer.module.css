@@ -19,25 +19,12 @@
   cursor: pointer;
   font-family: "Lato", sans-serif;
   font-weight: 500;
-  transition: recess 0.3s ease;
   height: 50%;
   align-self: center;
 }
 
 .info {
   margin: 40px 0;
-}
-
-@keyframes recess {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .total {
