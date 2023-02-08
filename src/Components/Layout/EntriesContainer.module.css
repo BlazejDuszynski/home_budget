@@ -31,3 +31,21 @@
   border-top: 2px solid grey;
   margin: 0;
 }
+
+@media (max-width: 632px) {
+  .header {
+    padding: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .button {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    font-size: 0.7em;
+  }
+}

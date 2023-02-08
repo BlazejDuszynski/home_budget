@@ -4,3 +4,9 @@
   gap: 5%;
   justify-content: space-evenly;
 }
+
+@media (max-width: 520px) {
+  .main {
+    padding: 30px 2%;
+  }
+}
