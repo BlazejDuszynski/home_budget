@@ -14,7 +14,9 @@ const Calendar = () => {
   const dateString = month + " " + year;
 
   const currentDate = new Date();
-  const currentMonth = currentDate.toLocaleString("default", { month: "long" });
+  const currentMonth = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+  }).format(currentDate);
   const currentYear = currentDate.getFullYear();
   const currentDateString = currentMonth + " " + currentYear;
 
