@@ -8,10 +8,7 @@
 }
 
 .datePicker__button {
-  background: none;
-  border: none;
   cursor: pointer;
-  display: flex;
 }
 
 .datePicker__content {
