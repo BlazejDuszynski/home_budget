@@ -18,12 +18,17 @@ const EntriesProvider = ({ children }) => {
     setRevenuesItems(updatedRevenues);
   };
 
+  // const editItemHandler = (id) => {
+
+  // }
+
   const entriesContext = {
     revenuesItems: revenueItems,
     expenseItems: expenseItems,
     addRevenue: addRevenueHandler,
     addExpense: addExpenseHandler,
     removeItem: removeEntryHandler,
+    // editItem: editItemHandler,
   };
 
   console.log(revenueItems);

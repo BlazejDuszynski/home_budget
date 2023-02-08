@@ -6,6 +6,7 @@ const EntriesContext = React.createContext({
   addRevenue: (item) => {},
   addExpense: (item) => {},
   removeItem: (id) => {},
+  // editItem: (id) => {},
 });
 
 export default EntriesContext;

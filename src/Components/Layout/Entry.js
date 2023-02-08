@@ -16,9 +16,9 @@ const Entry = (props) => {
     currency: "PLN",
   }).format(props.value);
 
-  const editEntryHandler = () => {
-    props.open();
-  };
+  // const editEntryHandler = () => {
+  //   props.open();
+  // };
 
   return (
     <li className={classes.entry}>
