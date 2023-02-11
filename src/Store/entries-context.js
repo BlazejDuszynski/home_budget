@@ -1,12 +1,10 @@
 import React from "react";
 
 const EntriesContext = React.createContext({
-  revenuesItems: [],
-  expenseItems: [],
-  addRevenue: (item) => {},
-  addExpense: (item) => {},
+  items: [],
+  addItem: (item) => {},
   removeItem: (id) => {},
-  // editItem: (id) => {},
+  editItem: (id) => {},
 });
 
 export default EntriesContext;

@@ -2,37 +2,25 @@ import { useState } from "react";
 import EntriesContext from "./entries-context";
 
 const EntriesProvider = ({ children }) => {
-  const [revenueItems, setRevenuesItems] = useState([]);
-  const [expenseItems, setExpenseItems] = useState([]);
+  const [items, setItems] = useState([]);
 
-  const addRevenueHandler = (revenue) => {
-    setRevenuesItems((prevValue) => [...prevValue, revenue]);
+  const addItemHandler = (item) => {
+    setItems((prevValue) => [...prevValue, item]);
   };
 
-  const addExpenseHandler = (expense) => {
-    setExpenseItems((prevValue) => [...prevValue, expense]);
+  const removeItemHandler = (id) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
   };
 
-  const removeEntryHandler = (id) => {
-    const updatedRevenues = revenueItems.filter((revenue) => revenue.id !== id);
-    setRevenuesItems(updatedRevenues);
-  };
-
-  // const editItemHandler = (id) => {
-
-  // }
+  const editItemHandler = (id) => {};
 
   const entriesContext = {
-    revenuesItems: revenueItems,
-    expenseItems: expenseItems,
-    addRevenue: addRevenueHandler,
-    addExpense: addExpenseHandler,
-    removeItem: removeEntryHandler,
-    // editItem: editItemHandler,
+    items: items,
+    addItem: addItemHandler,
+    removeItem: removeItemHandler,
+    editItem: editItemHandler,
   };
-
-  console.log(revenueItems);
-  console.log(expenseItems);
 
   return (
     <EntriesContext.Provider value={entriesContext}>

@@ -26,17 +26,15 @@ const EntriesContainer = (props) => {
   }).format(totalValueOfEntriesItems);
 
   useEffect(() => {
-    let entriesItems;
-    if (props.name === "Revenues") {
-      entriesItems = entriesCtx.revenuesItems;
-    } else if (props.name === "Expenses") {
-      entriesItems = entriesCtx.expenseItems;
-    }
     setFilteredEntries(
-      entriesItems.filter(({ date: entryDate }) => {
-        const revenueMonth = entryDate.getMonth();
-        const revenueYear = entryDate.getFullYear();
-        return chosenMonth === revenueMonth && chosenYear === revenueYear;
+      entriesCtx.items.filter(({ date, type }) => {
+        const revenueMonth = date.getMonth();
+        const revenueYear = date.getFullYear();
+        return (
+          chosenMonth === revenueMonth &&
+          chosenYear === revenueYear &&
+          type === props.name
+        );
       })
     );
   }, [entriesCtx, date]);
