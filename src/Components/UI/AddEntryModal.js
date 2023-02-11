@@ -105,7 +105,7 @@ const AddEntryModal = (props) => {
               classes["input"]
             }`}
             onChange={changeValueHandler}
-            // value={setPrice}
+            // value="15"
           />
           <input
             type="date"
